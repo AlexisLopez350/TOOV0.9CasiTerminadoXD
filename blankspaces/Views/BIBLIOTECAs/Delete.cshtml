@@ -1,0 +1,48 @@
+﻿@model blankspaces.Models.BIBLIOTECA
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Está seguro que desea eliminarla?</h3>
+<div>
+    <h4>BIBLIOTECA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

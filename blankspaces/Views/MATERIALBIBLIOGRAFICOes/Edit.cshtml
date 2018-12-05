@@ -1,0 +1,201 @@
+﻿@model blankspaces.ViewModels.MaterialViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#IDCATEGORIA").change(function () {
+            var countryId = $(this).val();
+            debugger
+            $.ajax({
+                type: "post",
+                url: "/MATERIALBIBLIOGRAFICOes/GetSubcaList?IDCATEGORIA=" + countryId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#IDSUBCATEGORIA").empty();
+                    $("#IDSUBCATEGORIA").append(response);
+                }
+            })
+
+        })
+    })
+</script>
+
+
+@using (Html.BeginForm("Edit", "MATERIALBIBLIOGRAFICOes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>@Html.DisplayFor(model => model.MaterialBibliografico1.NOMBRE)</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaterialBibliografico1.IDMATBIBLIO)
+    @Html.HiddenFor(model => model.foto)
+    @Html.HiddenFor(model => model.idlocalidad)
+    @Html.HiddenFor(model => model.subcategory)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.NOMBRE, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.EDITORIAL, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.EDITORIAL, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.EDITORIAL, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.MaterialBibliografico1.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.DESCRIPCION, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.SINOPSIS, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.MaterialBibliografico1.SINOPSIS, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.SINOPSIS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.LENGUAJE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.LENGUAJE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.LENGUAJE, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.FECHA, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.FECHA, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.FECHA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.VOLUMEN, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.VOLUMEN, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.VOLUMEN, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.UNIDADES, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.UNIDADES, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.UNIDADES, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- cambios! puse idcategoria en lugar del objeto categoria. -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.CATERGORIA, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @if (ViewBag.CountryList != null)
+            {
+                @Html.DropDownListFor(model => model.MaterialBibliografico1.IDCATEGORIA, ViewBag.CountryList as SelectList, "--Seleccione categoria", new { @id = "IDCATEGORIA", @class = "form-control" })
+
+            }
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.CATERGORIA, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.MaterialBibliografico1.IDSUBCATEGORIA, new SelectList(""), "--Seleccione subcategoria", new { @id = "IDSUBCATEGORIA", @class = "form-control" })
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("Tipo:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.MaterialBibliografico1.IDTIPO, (IEnumerable
+     <SelectListItem>)ViewBag.Tipo, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.MaterialBibliografico1.IDTIPO, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Subir Archivo:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("VideoFile", "", new { id = "idtxt", type = "file" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Portada:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("VideoFile1", "", new { type = "file" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.Label("Autor:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Autor1.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Autor1.NOMBRE, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaterialBibliografico1.ID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaterialBibliografico1.ID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaterialBibliografico1.BIBLIOTECA, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @if (ViewBag.Biblioteca != null)
+            {
+                @Html.DropDownListFor(model => model.MaterialBibliografico1.IDBIBLIOTECA, ViewBag.Biblioteca as SelectList, "--Seleccione Biblioteca", new { @class = "form-control" })
+
+            }
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+

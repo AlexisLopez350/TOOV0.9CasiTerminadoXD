@@ -1,0 +1,41 @@
+﻿
+@model blankspaces.Models.MATERIALBIBLIOGRAFICO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MATERIALBIBLIOGRAFICO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @if (Model.FOTO != null)
+        {
+            <dt>
+                @Html.DisplayName("Foto")
+            </dt>
+
+            <dd>
+                @* @Html.DisplayFor(model => model.TIPODOCUMENTO.TIPODOCUMENTO1)*@
+                <img src="/@Url.Content(Model.FOTO)" alt="Image" height="120" width="120" />
+            </dd>
+        }
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUBCATEGORIA.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUBCATEGORIA.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMATBIBLIO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

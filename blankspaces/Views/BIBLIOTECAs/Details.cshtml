@@ -1,0 +1,42 @@
+﻿@model blankspaces.Models.BIBLIOTECA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ver detalles</h2>
+
+<div>
+    <h4>BIBLIOTECA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDBIBLIOTECA }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<blankspaces.Models.CATERGORIA>
+
+@{
+    ViewBag.Title = "Estadisticas Por Categorias y Subcategorias";
+
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMCAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMCAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Id)
+            </td>
+
+        </tr>
+    }
+
+</table>

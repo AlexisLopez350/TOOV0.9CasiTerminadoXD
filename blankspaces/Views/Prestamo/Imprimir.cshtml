@@ -1,0 +1,87 @@
+﻿@model blankspaces.ViewModels.PrestamoViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Material a prestar</h2>
+@*
+    <p>
+        @Html.ActionLink("Convert View To PDF", "PrintViewToPdf", new { id = Model.Material1.IDMATBIBLIO }, null)
+    </p>
+*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <h4>Prestamo</h4>
+        <hr />
+
+        @Html.HiddenFor(model => model.Material1.IDMATBIBLIO)
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Material1.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Material1.NOMBRE, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Material1.NOMBRE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Usuarioid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Usuarioid, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Usuarioid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Model => Model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.prestamo1.FECHADEPRESTAMO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(Model => Model.prestamo1.FECHADEPRESTAMO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Model => Model.prestamo1.FECHADEPRESTAMO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.prestamo1.FECHADEENTREGA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(Model => Model.prestamo1.FECHADEENTREGA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(Model => Model.prestamo1.FECHADEENTREGA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Prestar Material" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}

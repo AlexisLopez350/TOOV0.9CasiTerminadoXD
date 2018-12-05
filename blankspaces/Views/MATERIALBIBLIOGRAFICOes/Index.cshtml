@@ -1,0 +1,123 @@
+﻿@model PagedList.IPagedList<blankspaces.Models.MATERIALBIBLIOGRAFICO>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Materiales</h2>
+
+<p>
+    @Html.ActionLink("Ingresar material", "Create")
+</p>
+@*Este es el codigo en el index para el boton de busqueda*@
+@using (Html.BeginForm("Index", "MATERIALBIBLIOGRAFICOes", FormMethod.Get))
+{
+    <p>
+        Busqueda:@Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+
+    </p>
+}
+<a href="MATERIALBIBLIOGRAFICOes">Todos los Registros</a>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nombre", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+
+        <th>
+            @Html.ActionLink("Autor", "Index", new { sortOrder = ViewBag.AutorSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+
+        <th>
+            EDITORIAL
+        </th>
+
+        <th>
+            VOLUMEN
+        </th>
+        <th>
+            UNIDADES
+        </th>
+
+
+        <th>
+            TIPO DE DOCUMENTO
+        </th>
+
+        <th>
+            CATEGORIA
+        </th>
+
+        <th>
+            SUBCATEGORIA
+        </th>
+
+        <th>
+            IMAGEN
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AUTOR.NOMBRE)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EDITORIAL)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.VOLUMEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UNIDADES)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TIPODOCUMENTO.TIPODOCUMENTO1)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CATERGORIA.IDCATEGORIA)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSUBCATEGORIA)
+            </td>
+
+            <td>
+                <img src="/@Url.Content(item.FOTO)" alt="Image" height="120" width="120" />
+
+            </td>
+
+
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IDMATBIBLIO }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IDMATBIBLIO }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IDMATBIBLIO })
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.currentSort, currentFilter = ViewBag.CurrentFilter }))

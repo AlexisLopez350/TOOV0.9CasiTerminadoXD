@@ -1,0 +1,68 @@
+﻿@model blankspaces.Models.PERSONA
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>PERSONA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHANACIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHANACIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GENERO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GENERO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDPERSONA }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<blankspaces.ViewModel.DbResult>
+
+@{
+    ViewBag.Title = "Estadisticas-Top10Libros";
+}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div class="py-5 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-capitalize display-2">Estadisticas- Top 10 libros mas prestados</h1>
+                <p class="lead text-muted">Facultad de Ingenieria y Arquitectura- Too115</p>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Identificador Material
+        </th>
+        <th>
+            Libro
+        </th>
+        <th>
+            Cant. Prestamos
+        </th>
+
+        <th>
+            Categoria
+        </th>
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr id="tbody">
+            <td>
+                @Html.DisplayFor(modelItem => item.IDMATBIBLIO)
+            </td>
+
+            <td>
+                <label name="nom" data-nom="@Html.DisplayFor(modelItem => item.NOMBRE)"
+                       data-cant="@Html.DisplayFor(modelItem => item.VECES)">@Html.DisplayFor(modelItem => item.NOMBRE)</label>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.VECES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMCAT)
+            </td>
+        </tr>
+    }
+    <div id="datos">
+        
+    </div>
+</table>
+
+<script type="text/javascript">
+
+    window.onload = function ()  {
+        
+
+        
+        google.charts.load("current", { packages: ['corechart'] });
+        //google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart);
+        //drawChart(arrayVal);
+
+    }
+    
+    function drawChart() {
+        //console.log("****** " + aNom)
+        //console.log("***** " + arrayVal)
+        /*var data = google.visualization.arrayToDataTable([
+            ["Libros", "Density", { role: "style" }],
+            ["Copper2", 8.94, "#b87333"],
+            ["Silver", 10.49, "silver"],
+            ["Gold", 19.30, "gold"],
+            ["Platinum", 21.45, "color: #e5e4e2"]
+        ]);*/
+
+        //this.console.log("exito ******");
+
+
+        //this.console.log(document.getElementById("name").value);
+        var inputs = document.getElementsByName('nom');
+        //this.console.log("****** " + inputs);
+        //this.console.log("****** " + inputs.length);
+        //var arrayNom;
+        //var arrayVal = new Array();
+        valores = [];
+        valores[0] = ["Libros", "Prestamos", { role: "style" }];
+        j = 1;
+        var colores = ["blue", "red", "green", "yellow", "blue", "blue", "red", "green", "yellow", "blue"];
+        for (var i = 0; i < inputs.length; i++) {
+            //this.console.log(inputs[i].value);
+            this.console.log(inputs[i].dataset.nom);
+            this.console.log(String(inputs[i].dataset.nom));
+            //this.console.log(inputs[i].dataset.cant);
+            //arrayNom.push(inputs[i].dataset.nom);
+            //arrayVal.push(inputs[i].dataset.cant);
+            valores[j] = [String(inputs[i].dataset.nom), parseFloat(inputs[i].dataset.cant), String(colores[i])];
+            j++;
+        }
+
+        /*valores = [];
+        valores[0] = ["Libros", "Density", { role: "style" }];
+        valores[1] = ["Copper2", 8.94, "#b87333"];
+        valores[2] = ["Silver", 10.49, "silver"];
+        valores[3] = ["Gold", 19.30, "gold"];
+        valores[4] = ["Platinum", 21.45, "color: #e5e4e2"];*/
+
+
+        //var view = new google.visualization.DataView(data);
+        var view = google.visualization.arrayToDataTable(valores);
+
+        /*view.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2]);*/
+
+        var options = {
+            title: "Top 10 de Libros mas Prestados",
+            width: 600,
+            height: 400,
+            bar: { groupWidth: "95%" },
+            legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+</script>
+
+    <div id="columnchart_values" style="width: 1000px; height: 300px;"></div>

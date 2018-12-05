@@ -1,0 +1,145 @@
+﻿@model blankspaces.Models.MATERIALBIBLIOGRAFICO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Está seguro que desea eliminar este material?</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.NOMBRE)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SINOPSIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SINOPSIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VOLUMEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VOLUMEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDITORIAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDITORIAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LENGUAJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LENGUAJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FOTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FOTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTOR.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTOR.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATERGORIA.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATERGORIA.ID)
+        </dd>
+
+        <dt>
+           UBICACION
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOCUMENTOLOCALIDAD.LOCACIONOURL)
+        </dd>
+
+        <dt>
+           TIPO DE DOCUMENTO
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPODOCUMENTO.TIPODOCUMENTO1)
+        </dd>
+
+        <dt>
+           CATEGORIA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCATEGORIA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

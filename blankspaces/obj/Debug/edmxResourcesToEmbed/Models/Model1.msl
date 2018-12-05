@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="BibliotecaModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="BibliotecaModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="BibliotecaModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="BibliotecaModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="BibliotecaModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUTORs">
+      <EntityTypeMapping TypeName="BibliotecaModel.AUTOR">
+        <MappingFragment StoreEntitySet="AUTOR">
+          <ScalarProperty Name="IDAUTOR" ColumnName="IDAUTOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BIBLIOTECAs">
+      <EntityTypeMapping TypeName="BibliotecaModel.BIBLIOTECA">
+        <MappingFragment StoreEntitySet="BIBLIOTECA">
+          <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATERGORIAs">
+      <EntityTypeMapping TypeName="BibliotecaModel.CATERGORIA">
+        <MappingFragment StoreEntitySet="CATERGORIA">
+          <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTAMENTOes">
+      <EntityTypeMapping TypeName="BibliotecaModel.DEPARTAMENTO">
+        <MappingFragment StoreEntitySet="DEPARTAMENTO">
+          <ScalarProperty Name="IDDEP" ColumnName="IDDEP" />
+          <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+          <ScalarProperty Name="NOMDEP" ColumnName="NOMDEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLEDEPERSONAs">
+      <EntityTypeMapping TypeName="BibliotecaModel.DETALLEDEPERSONA">
+        <MappingFragment StoreEntitySet="DETALLEDEPERSONA">
+          <ScalarProperty Name="IDDETALLE" ColumnName="IDDETALLE" />
+          <ScalarProperty Name="IDPERSONA" ColumnName="IDPERSONA" />
+          <ScalarProperty Name="LUGARDEESTUDIOS" ColumnName="LUGARDEESTUDIOS" />
+          <ScalarProperty Name="TRABAJA" ColumnName="TRABAJA" />
+          <ScalarProperty Name="ESTUDIA" ColumnName="ESTUDIA" />
+          <ScalarProperty Name="NOMBREMADRE" ColumnName="NOMBREMADRE" />
+          <ScalarProperty Name="NOMBREPADRE" ColumnName="NOMBREPADRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTOLOCALIDADs">
+      <EntityTypeMapping TypeName="BibliotecaModel.DOCUMENTOLOCALIDAD">
+        <MappingFragment StoreEntitySet="DOCUMENTOLOCALIDAD">
+          <ScalarProperty Name="IDLOCALIDAD" ColumnName="IDLOCALIDAD" />
+          <ScalarProperty Name="LOCALIDADFISICOODIGITAL" ColumnName="LOCALIDADFISICOODIGITAL" />
+          <ScalarProperty Name="LOCACIONOURL" ColumnName="LOCACIONOURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATERIALBIBLIOGRAFICOes">
+      <EntityTypeMapping TypeName="BibliotecaModel.MATERIALBIBLIOGRAFICO">
+        <MappingFragment StoreEntitySet="MATERIALBIBLIOGRAFICO">
+          <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+          <ScalarProperty Name="IDLOCALIDAD" ColumnName="IDLOCALIDAD" />
+          <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="SINOPSIS" ColumnName="SINOPSIS" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="VOLUMEN" ColumnName="VOLUMEN" />
+          <ScalarProperty Name="UNIDADES" ColumnName="UNIDADES" />
+          <ScalarProperty Name="EDITORIAL" ColumnName="EDITORIAL" />
+          <ScalarProperty Name="LENGUAJE" ColumnName="LENGUAJE" />
+          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+          <ScalarProperty Name="IDAUTOR" ColumnName="IDAUTOR" />
+          <ScalarProperty Name="IDSUBCATEGORIA" ColumnName="IDSUBCATEGORIA" />
+          <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENUs">
+      <EntityTypeMapping TypeName="BibliotecaModel.MENU">
+        <MappingFragment StoreEntitySet="MENU">
+          <ScalarProperty Name="IDMENU" ColumnName="IDMENU" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MEN_IDMENU" ColumnName="MEN_IDMENU" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUNICIPIOs">
+      <EntityTypeMapping TypeName="BibliotecaModel.MUNICIPIO">
+        <MappingFragment StoreEntitySet="MUNICIPIO">
+          <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+          <ScalarProperty Name="NOMMUN" ColumnName="NOMMUN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PENALIZACIONs">
+      <EntityTypeMapping TypeName="BibliotecaModel.PENALIZACION">
+        <MappingFragment StoreEntitySet="PENALIZACION">
+          <ScalarProperty Name="IDPE" ColumnName="IDPE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHAINI" ColumnName="FECHAINI" />
+          <ScalarProperty Name="FECHAFIN" ColumnName="FECHAFIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONAs">
+      <EntityTypeMapping TypeName="BibliotecaModel.PERSONA">
+        <MappingFragment StoreEntitySet="PERSONA">
+          <ScalarProperty Name="IDPERSONA" ColumnName="IDPERSONA" />
+          <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+          <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRESTAMOes">
+      <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
+        <MappingFragment StoreEntitySet="PRESTAMO">
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHADEPRESTAMO" ColumnName="FECHADEPRESTAMO" />
+          <ScalarProperty Name="FECHADEENTREGA" ColumnName="FECHADEENTREGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGISTROes">
+      <EntityTypeMapping TypeName="BibliotecaModel.REGISTRO">
+        <MappingFragment StoreEntitySet="REGISTRO">
+          <ScalarProperty Name="IDREGISTRO" ColumnName="IDREGISTRO" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+          <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBCATEGORIAs">
+      <EntityTypeMapping TypeName="BibliotecaModel.SUBCATEGORIA">
+        <MappingFragment StoreEntitySet="SUBCATEGORIA">
+          <ScalarProperty Name="IDSUBCATEGORIA" ColumnName="IDSUBCATEGORIA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPODOCUMENTOes">
+      <EntityTypeMapping TypeName="BibliotecaModel.TIPODOCUMENTO">
+        <MappingFragment StoreEntitySet="TIPODOCUMENTO">
+          <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+          <ScalarProperty Name="TIPODOCUMENTO1" ColumnName="TIPODOCUMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="BibliotecaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

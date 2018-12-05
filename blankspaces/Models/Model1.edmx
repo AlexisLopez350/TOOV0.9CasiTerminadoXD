@@ -1,0 +1,1583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BibliotecaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IdPersona" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDBIBLIOTECA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUTOR">
+          <Key>
+            <PropertyRef Name="IDAUTOR" />
+          </Key>
+          <Property Name="IDAUTOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIBLIOTECA">
+          <Key>
+            <PropertyRef Name="IDBIBLIOTECA" />
+          </Key>
+          <Property Name="IDBIBLIOTECA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="255" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CATERGORIA">
+          <Key>
+            <PropertyRef Name="IDCATEGORIA" />
+          </Key>
+          <Property Name="IDCATEGORIA" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IDDEP" />
+          </Key>
+          <Property Name="IDDEP" Type="int" Nullable="false" />
+          <Property Name="IDMUNICIPIO" Type="int" Nullable="false" />
+          <Property Name="NOMDEP" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLEDEPERSONA">
+          <Key>
+            <PropertyRef Name="IDDETALLE" />
+          </Key>
+          <Property Name="IDDETALLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDPERSONA" Type="nvarchar" MaxLength="10" />
+          <Property Name="LUGARDEESTUDIOS" Type="varchar" MaxLength="255" />
+          <Property Name="TRABAJA" Type="bit" />
+          <Property Name="ESTUDIA" Type="bit" />
+          <Property Name="NOMBREMADRE" Type="varchar" MaxLength="255" />
+          <Property Name="NOMBREPADRE" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DOCUMENTOLOCALIDAD">
+          <Key>
+            <PropertyRef Name="IDLOCALIDAD" />
+          </Key>
+          <Property Name="IDLOCALIDAD" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOCALIDADFISICOODIGITAL" Type="bit" Nullable="false" />
+          <Property Name="LOCACIONOURL" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATERIALBIBLIOGRAFICO">
+          <Key>
+            <PropertyRef Name="IDMATBIBLIO" />
+          </Key>
+          <Property Name="IDMATBIBLIO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDLOCALIDAD" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IDCATEGORIA" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="IDTIPO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="SINOPSIS" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
+          <Property Name="VOLUMEN" Type="int" Nullable="false" />
+          <Property Name="UNIDADES" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="EDITORIAL" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="LENGUAJE" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FOTO" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="IDAUTOR" Type="int" Nullable="false" />
+          <Property Name="IDSUBCATEGORIA" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="IDBIBLIOTECA" Type="int" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="IDMENU" />
+          </Key>
+          <Property Name="IDMENU" Type="int" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MEN_IDMENU" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MUNICIPIO">
+          <Key>
+            <PropertyRef Name="IDMUNICIPIO" />
+          </Key>
+          <Property Name="IDMUNICIPIO" Type="int" Nullable="false" />
+          <Property Name="NOMMUN" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PENALIZACION">
+          <Key>
+            <PropertyRef Name="IDPE" />
+          </Key>
+          <Property Name="IDPE" Type="int" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FECHAINI" Type="datetime" Nullable="false" />
+          <Property Name="FECHAFIN" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="IDPERSONA" />
+          </Key>
+          <Property Name="IDPERSONA" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDMUNICIPIO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="APELLIDO" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FECHANACIMIENTO" Type="date" Nullable="false" />
+          <Property Name="GENERO" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="IDPRESTAMO" />
+          </Key>
+          <Property Name="IDPRESTAMO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDMATBIBLIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FECHADEPRESTAMO" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FECHADEENTREGA" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REGISTRO">
+          <Key>
+            <PropertyRef Name="IDREGISTRO" />
+          </Key>
+          <Property Name="IDREGISTRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="int" Nullable="false" />
+          <Property Name="IDMATBIBLIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUBCATEGORIA">
+          <Key>
+            <PropertyRef Name="IDSUBCATEGORIA" />
+          </Key>
+          <Property Name="IDSUBCATEGORIA" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="IDCATEGORIA" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPODOCUMENTO">
+          <Key>
+            <PropertyRef Name="IDTIPO" />
+          </Key>
+          <Property Name="IDTIPO" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPODOCUMENTO" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_REFERENCE_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATERGOR_REFERENCE_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATERGORIA">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTAM_REFERENCE_MUNICIPI">
+          <End Role="MUNICIPIO" Type="Self.MUNICIPIO" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPIO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLED_REFERENCE_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="DETALLEDEPERSONA" Type="Self.DETALLEDEPERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Principal>
+            <Dependent Role="DETALLEDEPERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERI_CATERGOR">
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATERGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Biblioteca">
+          <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BIBLIOTECA">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_FK_MATERI_DOCUMENT">
+          <End Role="DOCUMENTOLOCALIDAD" Type="Self.DOCUMENTOLOCALIDAD" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTOLOCALIDAD">
+              <PropertyRef Name="IDLOCALIDAD" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDLOCALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_FK_MATERI_TIPODOCU">
+          <End Role="TIPODOCUMENTO" Type="Self.TIPODOCUMENTO" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPODOCUMENTO">
+              <PropertyRef Name="IDTIPO" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDTIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_REFERENCE_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Subcategoria">
+          <End Role="SUBCATEGORIA" Type="Self.SUBCATEGORIA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIA">
+              <PropertyRef Name="IDSUBCATEGORIA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDSUBCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialBibliografico_Autor">
+          <End Role="AUTOR" Type="Self.AUTOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTOR">
+              <PropertyRef Name="IDAUTOR" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDAUTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MENU_FK_MENU_R_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="MENU1" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="IDMENU" />
+            </Principal>
+            <Dependent Role="MENU1">
+              <PropertyRef Name="MEN_IDMENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MENU_FK_MENU_S_ASPNETROLES">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PENALIZA_FK_PENALI_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="PENALIZACION" Type="Self.PENALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PENALIZACION">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_REFERENCE_MUNICIPI">
+          <End Role="MUNICIPIO" Type="Self.MUNICIPIO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPIO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTAMO_FK_PRESTA_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTAMO_FK_PRESTA_MATERIAL">
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Registro_Material">
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Principal>
+            <Dependent Role="REGISTRO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Registro_Users">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="REGISTRO">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategoria_Categoria">
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="1" />
+          <End Role="SUBCATEGORIA" Type="Self.SUBCATEGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATERGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Biblioteca">
+          <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BIBLIOTECA">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BibliotecaModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AUTOR" EntityType="Self.AUTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BIBLIOTECA" EntityType="Self.BIBLIOTECA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATERGORIA" EntityType="Self.CATERGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLEDEPERSONA" EntityType="Self.DETALLEDEPERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTOLOCALIDAD" EntityType="Self.DOCUMENTOLOCALIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MATERIALBIBLIOGRAFICO" EntityType="Self.MATERIALBIBLIOGRAFICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUNICIPIO" EntityType="Self.MUNICIPIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PENALIZACION" EntityType="Self.PENALIZACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRESTAMO" EntityType="Self.PRESTAMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGISTRO" EntityType="Self.REGISTRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUBCATEGORIA" EntityType="Self.SUBCATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPODOCUMENTO" EntityType="Self.TIPODOCUMENTO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_REFERENCE_PERSONA" Association="Self.FK_AspNetUsers_REFERENCE_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATERGOR_REFERENCE_ASPNETUSERS" Association="Self.FK_CATERGOR_REFERENCE_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CATERGORIA" EntitySet="CATERGORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTAM_REFERENCE_MUNICIPI" Association="Self.FK_DEPARTAM_REFERENCE_MUNICIPI">
+            <End Role="MUNICIPIO" EntitySet="MUNICIPIO" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLED_REFERENCE_PERSONA" Association="Self.FK_DETALLED_REFERENCE_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="DETALLEDEPERSONA" EntitySet="DETALLEDEPERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERI_CATERGOR" Association="Self.FK_MATERI_CATERGOR">
+            <End Role="CATERGORIA" EntitySet="CATERGORIA" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Biblioteca" Association="Self.FK_Material_Biblioteca">
+            <End Role="BIBLIOTECA" EntitySet="BIBLIOTECA" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_FK_MATERI_DOCUMENT" Association="Self.FK_MATERIAL_FK_MATERI_DOCUMENT">
+            <End Role="DOCUMENTOLOCALIDAD" EntitySet="DOCUMENTOLOCALIDAD" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_FK_MATERI_TIPODOCU" Association="Self.FK_MATERIAL_FK_MATERI_TIPODOCU">
+            <End Role="TIPODOCUMENTO" EntitySet="TIPODOCUMENTO" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_REFERENCE_AspNetUsers" Association="Self.FK_MATERIAL_REFERENCE_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Subcategoria" Association="Self.FK_Material_Subcategoria">
+            <End Role="SUBCATEGORIA" EntitySet="SUBCATEGORIA" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialBibliografico_Autor" Association="Self.FK_MaterialBibliografico_Autor">
+            <End Role="AUTOR" EntitySet="AUTOR" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MENU_FK_MENU_R_MENU" Association="Self.FK_MENU_FK_MENU_R_MENU">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="MENU1" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MENU_FK_MENU_S_ASPNETROLES" Association="Self.FK_MENU_FK_MENU_S_ASPNETROLES">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="MENU" EntitySet="MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PENALIZA_FK_PENALI_ASPNETUSERS" Association="Self.FK_PENALIZA_FK_PENALI_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PENALIZACION" EntitySet="PENALIZACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_REFERENCE_MUNICIPI" Association="Self.FK_PERSONA_REFERENCE_MUNICIPI">
+            <End Role="MUNICIPIO" EntitySet="MUNICIPIO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTAMO_FK_PRESTA_ASPNETUSERS" Association="Self.FK_PRESTAMO_FK_PRESTA_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTAMO_FK_PRESTA_MATERIAL" Association="Self.FK_PRESTAMO_FK_PRESTA_MATERIAL">
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Registro_Material" Association="Self.FK_Registro_Material">
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICO" />
+            <End Role="REGISTRO" EntitySet="REGISTRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Registro_Users" Association="Self.FK_Registro_Users">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="REGISTRO" EntitySet="REGISTRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategoria_Categoria" Association="Self.FK_Subcategoria_Categoria">
+            <End Role="CATERGORIA" EntitySet="CATERGORIA" />
+            <End Role="SUBCATEGORIA" EntitySet="SUBCATEGORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Biblioteca" Association="Self.FK_Users_Biblioteca">
+            <End Role="BIBLIOTECA" EntitySet="BIBLIOTECA" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BibliotecaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MENUs" Relationship="Self.FK_MENU_FK_MENU_S_ASPNETROLES" FromRole="AspNetRoles" ToRole="MENU" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdPersona" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDBIBLIOTECA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_AspNetUsers_REFERENCE_PERSONA" FromRole="AspNetUsers" ToRole="PERSONA" />
+          <NavigationProperty Name="CATERGORIAs" Relationship="Self.FK_CATERGOR_REFERENCE_ASPNETUSERS" FromRole="AspNetUsers" ToRole="CATERGORIA" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_MATERIAL_REFERENCE_AspNetUsers" FromRole="AspNetUsers" ToRole="MATERIALBIBLIOGRAFICO" />
+          <NavigationProperty Name="PENALIZACIONs" Relationship="Self.FK_PENALIZA_FK_PENALI_ASPNETUSERS" FromRole="AspNetUsers" ToRole="PENALIZACION" />
+          <NavigationProperty Name="PRESTAMOes" Relationship="Self.FK_PRESTAMO_FK_PRESTA_ASPNETUSERS" FromRole="AspNetUsers" ToRole="PRESTAMO" />
+          <NavigationProperty Name="REGISTROes" Relationship="Self.FK_Registro_Users" FromRole="AspNetUsers" ToRole="REGISTRO" />
+          <NavigationProperty Name="BIBLIOTECA" Relationship="Self.FK_Users_Biblioteca" FromRole="AspNetUsers" ToRole="BIBLIOTECA" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AUTOR">
+          <Key>
+            <PropertyRef Name="IDAUTOR" />
+          </Key>
+          <Property Name="IDAUTOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_MaterialBibliografico_Autor" FromRole="AUTOR" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="BIBLIOTECA">
+          <Key>
+            <PropertyRef Name="IDBIBLIOTECA" />
+          </Key>
+          <Property Name="IDBIBLIOTECA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Users_Biblioteca" FromRole="BIBLIOTECA" ToRole="AspNetUsers" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_Material_Biblioteca" FromRole="BIBLIOTECA" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="CATERGORIA">
+          <Key>
+            <PropertyRef Name="IDCATEGORIA" />
+          </Key>
+          <Property Name="IDCATEGORIA" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_CATERGOR_REFERENCE_ASPNETUSERS" FromRole="CATERGORIA" ToRole="AspNetUsers" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_MATERI_CATERGOR" FromRole="CATERGORIA" ToRole="MATERIALBIBLIOGRAFICO" />
+          <NavigationProperty Name="SUBCATEGORIAs" Relationship="Self.FK_Subcategoria_Categoria" FromRole="CATERGORIA" ToRole="SUBCATEGORIA" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IDDEP" />
+          </Key>
+          <Property Name="IDDEP" Type="Int32" Nullable="false" />
+          <Property Name="IDMUNICIPIO" Type="Int32" Nullable="false" />
+          <Property Name="NOMDEP" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MUNICIPIO" Relationship="Self.FK_DEPARTAM_REFERENCE_MUNICIPI" FromRole="DEPARTAMENTO" ToRole="MUNICIPIO" />
+        </EntityType>
+        <EntityType Name="DETALLEDEPERSONA">
+          <Key>
+            <PropertyRef Name="IDDETALLE" />
+          </Key>
+          <Property Name="IDDETALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPERSONA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LUGARDEESTUDIOS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TRABAJA" Type="Boolean" />
+          <Property Name="ESTUDIA" Type="Boolean" />
+          <Property Name="NOMBREMADRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBREPADRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_DETALLED_REFERENCE_PERSONA" FromRole="DETALLEDEPERSONA" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="DOCUMENTOLOCALIDAD">
+          <Key>
+            <PropertyRef Name="IDLOCALIDAD" />
+          </Key>
+          <Property Name="IDLOCALIDAD" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOCALIDADFISICOODIGITAL" Type="Boolean" Nullable="false" />
+          <Property Name="LOCACIONOURL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_MATERIAL_FK_MATERI_DOCUMENT" FromRole="DOCUMENTOLOCALIDAD" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="MATERIALBIBLIOGRAFICO">
+          <Key>
+            <PropertyRef Name="IDMATBIBLIO" />
+          </Key>
+          <Property Name="IDMATBIBLIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDLOCALIDAD" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IDCATEGORIA" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDTIPO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SINOPSIS" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VOLUMEN" Type="Int32" Nullable="false" />
+          <Property Name="UNIDADES" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EDITORIAL" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LENGUAJE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FOTO" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDAUTOR" Type="Int32" Nullable="false" />
+          <Property Name="IDSUBCATEGORIA" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDBIBLIOTECA" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MATERIAL_REFERENCE_AspNetUsers" FromRole="MATERIALBIBLIOGRAFICO" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AUTOR" Relationship="Self.FK_MaterialBibliografico_Autor" FromRole="MATERIALBIBLIOGRAFICO" ToRole="AUTOR" />
+          <NavigationProperty Name="BIBLIOTECA" Relationship="Self.FK_Material_Biblioteca" FromRole="MATERIALBIBLIOGRAFICO" ToRole="BIBLIOTECA" />
+          <NavigationProperty Name="CATERGORIA" Relationship="Self.FK_MATERI_CATERGOR" FromRole="MATERIALBIBLIOGRAFICO" ToRole="CATERGORIA" />
+          <NavigationProperty Name="DOCUMENTOLOCALIDAD" Relationship="Self.FK_MATERIAL_FK_MATERI_DOCUMENT" FromRole="MATERIALBIBLIOGRAFICO" ToRole="DOCUMENTOLOCALIDAD" />
+          <NavigationProperty Name="TIPODOCUMENTO" Relationship="Self.FK_MATERIAL_FK_MATERI_TIPODOCU" FromRole="MATERIALBIBLIOGRAFICO" ToRole="TIPODOCUMENTO" />
+          <NavigationProperty Name="SUBCATEGORIA" Relationship="Self.FK_Material_Subcategoria" FromRole="MATERIALBIBLIOGRAFICO" ToRole="SUBCATEGORIA" />
+          <NavigationProperty Name="PRESTAMOes" Relationship="Self.FK_PRESTAMO_FK_PRESTA_MATERIAL" FromRole="MATERIALBIBLIOGRAFICO" ToRole="PRESTAMO" />
+          <NavigationProperty Name="REGISTROes" Relationship="Self.FK_Registro_Material" FromRole="MATERIALBIBLIOGRAFICO" ToRole="REGISTRO" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="IDMENU" />
+          </Key>
+          <Property Name="IDMENU" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MEN_IDMENU" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetRole" Relationship="Self.FK_MENU_FK_MENU_S_ASPNETROLES" FromRole="MENU" ToRole="AspNetRoles" />
+          <NavigationProperty Name="MENU1" Relationship="Self.FK_MENU_FK_MENU_R_MENU" FromRole="MENU" ToRole="MENU1" />
+          <NavigationProperty Name="MENU2" Relationship="Self.FK_MENU_FK_MENU_R_MENU" FromRole="MENU1" ToRole="MENU" />
+        </EntityType>
+        <EntityType Name="MUNICIPIO">
+          <Key>
+            <PropertyRef Name="IDMUNICIPIO" />
+          </Key>
+          <Property Name="IDMUNICIPIO" Type="Int32" Nullable="false" />
+          <Property Name="NOMMUN" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DEPARTAMENTOes" Relationship="Self.FK_DEPARTAM_REFERENCE_MUNICIPI" FromRole="MUNICIPIO" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="PERSONAs" Relationship="Self.FK_PERSONA_REFERENCE_MUNICIPI" FromRole="MUNICIPIO" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="PENALIZACION">
+          <Key>
+            <PropertyRef Name="IDPE" />
+          </Key>
+          <Property Name="IDPE" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FECHAINI" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHAFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PENALIZA_FK_PENALI_ASPNETUSERS" FromRole="PENALIZACION" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="IDPERSONA" />
+          </Key>
+          <Property Name="IDPERSONA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDMUNICIPIO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHANACIMIENTO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GENERO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_REFERENCE_PERSONA" FromRole="PERSONA" ToRole="AspNetUsers" />
+          <NavigationProperty Name="DETALLEDEPERSONAs" Relationship="Self.FK_DETALLED_REFERENCE_PERSONA" FromRole="PERSONA" ToRole="DETALLEDEPERSONA" />
+          <NavigationProperty Name="MUNICIPIO" Relationship="Self.FK_PERSONA_REFERENCE_MUNICIPI" FromRole="PERSONA" ToRole="MUNICIPIO" />
+        </EntityType>
+        <EntityType Name="PRESTAMO">
+          <Key>
+            <PropertyRef Name="IDPRESTAMO" />
+          </Key>
+          <Property Name="IDPRESTAMO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDMATBIBLIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FECHADEPRESTAMO" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHADEENTREGA" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PRESTAMO_FK_PRESTA_ASPNETUSERS" FromRole="PRESTAMO" ToRole="AspNetUsers" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICO" Relationship="Self.FK_PRESTAMO_FK_PRESTA_MATERIAL" FromRole="PRESTAMO" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="REGISTRO">
+          <Key>
+            <PropertyRef Name="IDREGISTRO" />
+          </Key>
+          <Property Name="IDREGISTRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDPRESTAMO" Type="Int32" Nullable="false" />
+          <Property Name="IDMATBIBLIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Registro_Users" FromRole="REGISTRO" ToRole="AspNetUsers" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICO" Relationship="Self.FK_Registro_Material" FromRole="REGISTRO" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="SUBCATEGORIA">
+          <Key>
+            <PropertyRef Name="IDSUBCATEGORIA" />
+          </Key>
+          <Property Name="IDSUBCATEGORIA" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDCATEGORIA" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATERGORIA" Relationship="Self.FK_Subcategoria_Categoria" FromRole="SUBCATEGORIA" ToRole="CATERGORIA" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_Material_Subcategoria" FromRole="SUBCATEGORIA" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <EntityType Name="TIPODOCUMENTO">
+          <Key>
+            <PropertyRef Name="IDTIPO" />
+          </Key>
+          <Property Name="IDTIPO" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPODOCUMENTO1" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATERIALBIBLIOGRAFICOes" Relationship="Self.FK_MATERIAL_FK_MATERI_TIPODOCU" FromRole="TIPODOCUMENTO" ToRole="MATERIALBIBLIOGRAFICO" />
+        </EntityType>
+        <Association Name="FK_MENU_FK_MENU_S_ASPNETROLES">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1" />
+          <End Role="MENU" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MENU">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_REFERENCE_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATERGOR_REFERENCE_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATERGORIA">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_REFERENCE_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PENALIZA_FK_PENALI_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="PENALIZACION" Type="Self.PENALIZACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PENALIZACION">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTAMO_FK_PRESTA_ASPNETUSERS">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Registro_Users">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="REGISTRO">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Biblioteca">
+          <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BIBLIOTECA">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialBibliografico_Autor">
+          <End Role="AUTOR" Type="Self.AUTOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTOR">
+              <PropertyRef Name="IDAUTOR" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDAUTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Biblioteca">
+          <End Role="BIBLIOTECA" Type="Self.BIBLIOTECA" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BIBLIOTECA">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDBIBLIOTECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERI_CATERGOR">
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATERGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategoria_Categoria">
+          <End Role="CATERGORIA" Type="Self.CATERGORIA" Multiplicity="1" />
+          <End Role="SUBCATEGORIA" Type="Self.SUBCATEGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATERGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="SUBCATEGORIA">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTAM_REFERENCE_MUNICIPI">
+          <End Role="MUNICIPIO" Type="Self.MUNICIPIO" Multiplicity="1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPIO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLED_REFERENCE_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="DETALLEDEPERSONA" Type="Self.DETALLEDEPERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Principal>
+            <Dependent Role="DETALLEDEPERSONA">
+              <PropertyRef Name="IDPERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_FK_MATERI_DOCUMENT">
+          <End Role="DOCUMENTOLOCALIDAD" Type="Self.DOCUMENTOLOCALIDAD" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTOLOCALIDAD">
+              <PropertyRef Name="IDLOCALIDAD" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDLOCALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_FK_MATERI_TIPODOCU">
+          <End Role="TIPODOCUMENTO" Type="Self.TIPODOCUMENTO" Multiplicity="1" />
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPODOCUMENTO">
+              <PropertyRef Name="IDTIPO" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDTIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Subcategoria">
+          <End Role="SUBCATEGORIA" Type="Self.SUBCATEGORIA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBCATEGORIA">
+              <PropertyRef Name="IDSUBCATEGORIA" />
+            </Principal>
+            <Dependent Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDSUBCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESTAMO_FK_PRESTA_MATERIAL">
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="1" />
+          <End Role="PRESTAMO" Type="Self.PRESTAMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Principal>
+            <Dependent Role="PRESTAMO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Registro_Material">
+          <End Role="MATERIALBIBLIOGRAFICO" Type="Self.MATERIALBIBLIOGRAFICO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIALBIBLIOGRAFICO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Principal>
+            <Dependent Role="REGISTRO">
+              <PropertyRef Name="IDMATBIBLIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MENU_FK_MENU_R_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="MENU1" Type="Self.MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="IDMENU" />
+            </Principal>
+            <Dependent Role="MENU1">
+              <PropertyRef Name="MEN_IDMENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_REFERENCE_MUNICIPI">
+          <End Role="MUNICIPIO" Type="Self.MUNICIPIO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPIO">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="IDMUNICIPIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BibliotecaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="AUTORs" EntityType="Self.AUTOR" />
+          <EntitySet Name="BIBLIOTECAs" EntityType="Self.BIBLIOTECA" />
+          <EntitySet Name="CATERGORIAs" EntityType="Self.CATERGORIA" />
+          <EntitySet Name="DEPARTAMENTOes" EntityType="Self.DEPARTAMENTO" />
+          <EntitySet Name="DETALLEDEPERSONAs" EntityType="Self.DETALLEDEPERSONA" />
+          <EntitySet Name="DOCUMENTOLOCALIDADs" EntityType="Self.DOCUMENTOLOCALIDAD" />
+          <EntitySet Name="MATERIALBIBLIOGRAFICOes" EntityType="Self.MATERIALBIBLIOGRAFICO" />
+          <EntitySet Name="MENUs" EntityType="Self.MENU" />
+          <EntitySet Name="MUNICIPIOs" EntityType="Self.MUNICIPIO" />
+          <EntitySet Name="PENALIZACIONs" EntityType="Self.PENALIZACION" />
+          <EntitySet Name="PERSONAs" EntityType="Self.PERSONA" />
+          <EntitySet Name="PRESTAMOes" EntityType="Self.PRESTAMO" />
+          <EntitySet Name="REGISTROes" EntityType="Self.REGISTRO" />
+          <EntitySet Name="SUBCATEGORIAs" EntityType="Self.SUBCATEGORIA" />
+          <EntitySet Name="TIPODOCUMENTOes" EntityType="Self.TIPODOCUMENTO" />
+          <AssociationSet Name="FK_MENU_FK_MENU_S_ASPNETROLES" Association="Self.FK_MENU_FK_MENU_S_ASPNETROLES">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="MENU" EntitySet="MENUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_REFERENCE_PERSONA" Association="Self.FK_AspNetUsers_REFERENCE_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONAs" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATERGOR_REFERENCE_ASPNETUSERS" Association="Self.FK_CATERGOR_REFERENCE_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CATERGORIA" EntitySet="CATERGORIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_REFERENCE_AspNetUsers" Association="Self.FK_MATERIAL_REFERENCE_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PENALIZA_FK_PENALI_ASPNETUSERS" Association="Self.FK_PENALIZA_FK_PENALI_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PENALIZACION" EntitySet="PENALIZACIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTAMO_FK_PRESTA_ASPNETUSERS" Association="Self.FK_PRESTAMO_FK_PRESTA_ASPNETUSERS">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Registro_Users" Association="Self.FK_Registro_Users">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="REGISTRO" EntitySet="REGISTROes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Biblioteca" Association="Self.FK_Users_Biblioteca">
+            <End Role="BIBLIOTECA" EntitySet="BIBLIOTECAs" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialBibliografico_Autor" Association="Self.FK_MaterialBibliografico_Autor">
+            <End Role="AUTOR" EntitySet="AUTORs" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Biblioteca" Association="Self.FK_Material_Biblioteca">
+            <End Role="BIBLIOTECA" EntitySet="BIBLIOTECAs" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERI_CATERGOR" Association="Self.FK_MATERI_CATERGOR">
+            <End Role="CATERGORIA" EntitySet="CATERGORIAs" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategoria_Categoria" Association="Self.FK_Subcategoria_Categoria">
+            <End Role="CATERGORIA" EntitySet="CATERGORIAs" />
+            <End Role="SUBCATEGORIA" EntitySet="SUBCATEGORIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTAM_REFERENCE_MUNICIPI" Association="Self.FK_DEPARTAM_REFERENCE_MUNICIPI">
+            <End Role="MUNICIPIO" EntitySet="MUNICIPIOs" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLED_REFERENCE_PERSONA" Association="Self.FK_DETALLED_REFERENCE_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONAs" />
+            <End Role="DETALLEDEPERSONA" EntitySet="DETALLEDEPERSONAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_FK_MATERI_DOCUMENT" Association="Self.FK_MATERIAL_FK_MATERI_DOCUMENT">
+            <End Role="DOCUMENTOLOCALIDAD" EntitySet="DOCUMENTOLOCALIDADs" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_FK_MATERI_TIPODOCU" Association="Self.FK_MATERIAL_FK_MATERI_TIPODOCU">
+            <End Role="TIPODOCUMENTO" EntitySet="TIPODOCUMENTOes" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Subcategoria" Association="Self.FK_Material_Subcategoria">
+            <End Role="SUBCATEGORIA" EntitySet="SUBCATEGORIAs" />
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESTAMO_FK_PRESTA_MATERIAL" Association="Self.FK_PRESTAMO_FK_PRESTA_MATERIAL">
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+            <End Role="PRESTAMO" EntitySet="PRESTAMOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Registro_Material" Association="Self.FK_Registro_Material">
+            <End Role="MATERIALBIBLIOGRAFICO" EntitySet="MATERIALBIBLIOGRAFICOes" />
+            <End Role="REGISTRO" EntitySet="REGISTROes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MENU_FK_MENU_R_MENU" Association="Self.FK_MENU_FK_MENU_R_MENU">
+            <End Role="MENU" EntitySet="MENUs" />
+            <End Role="MENU1" EntitySet="MENUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_REFERENCE_MUNICIPI" Association="Self.FK_PERSONA_REFERENCE_MUNICIPI">
+            <End Role="MUNICIPIO" EntitySet="MUNICIPIOs" />
+            <End Role="PERSONA" EntitySet="PERSONAs" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaEntities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="BibliotecaModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="BibliotecaModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="BibliotecaModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="BibliotecaModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="BibliotecaModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUTORs">
+            <EntityTypeMapping TypeName="BibliotecaModel.AUTOR">
+              <MappingFragment StoreEntitySet="AUTOR">
+                <ScalarProperty Name="IDAUTOR" ColumnName="IDAUTOR" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIBLIOTECAs">
+            <EntityTypeMapping TypeName="BibliotecaModel.BIBLIOTECA">
+              <MappingFragment StoreEntitySet="BIBLIOTECA">
+                <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATERGORIAs">
+            <EntityTypeMapping TypeName="BibliotecaModel.CATERGORIA">
+              <MappingFragment StoreEntitySet="CATERGORIA">
+                <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTOes">
+            <EntityTypeMapping TypeName="BibliotecaModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="IDDEP" ColumnName="IDDEP" />
+                <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+                <ScalarProperty Name="NOMDEP" ColumnName="NOMDEP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLEDEPERSONAs">
+            <EntityTypeMapping TypeName="BibliotecaModel.DETALLEDEPERSONA">
+              <MappingFragment StoreEntitySet="DETALLEDEPERSONA">
+                <ScalarProperty Name="IDDETALLE" ColumnName="IDDETALLE" />
+                <ScalarProperty Name="IDPERSONA" ColumnName="IDPERSONA" />
+                <ScalarProperty Name="LUGARDEESTUDIOS" ColumnName="LUGARDEESTUDIOS" />
+                <ScalarProperty Name="TRABAJA" ColumnName="TRABAJA" />
+                <ScalarProperty Name="ESTUDIA" ColumnName="ESTUDIA" />
+                <ScalarProperty Name="NOMBREMADRE" ColumnName="NOMBREMADRE" />
+                <ScalarProperty Name="NOMBREPADRE" ColumnName="NOMBREPADRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTOLOCALIDADs">
+            <EntityTypeMapping TypeName="BibliotecaModel.DOCUMENTOLOCALIDAD">
+              <MappingFragment StoreEntitySet="DOCUMENTOLOCALIDAD">
+                <ScalarProperty Name="IDLOCALIDAD" ColumnName="IDLOCALIDAD" />
+                <ScalarProperty Name="LOCALIDADFISICOODIGITAL" ColumnName="LOCALIDADFISICOODIGITAL" />
+                <ScalarProperty Name="LOCACIONOURL" ColumnName="LOCACIONOURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIALBIBLIOGRAFICOes">
+            <EntityTypeMapping TypeName="BibliotecaModel.MATERIALBIBLIOGRAFICO">
+              <MappingFragment StoreEntitySet="MATERIALBIBLIOGRAFICO">
+                <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+                <ScalarProperty Name="IDLOCALIDAD" ColumnName="IDLOCALIDAD" />
+                <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+                <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="SINOPSIS" ColumnName="SINOPSIS" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="VOLUMEN" ColumnName="VOLUMEN" />
+                <ScalarProperty Name="UNIDADES" ColumnName="UNIDADES" />
+                <ScalarProperty Name="EDITORIAL" ColumnName="EDITORIAL" />
+                <ScalarProperty Name="LENGUAJE" ColumnName="LENGUAJE" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="IDAUTOR" ColumnName="IDAUTOR" />
+                <ScalarProperty Name="IDSUBCATEGORIA" ColumnName="IDSUBCATEGORIA" />
+                <ScalarProperty Name="IDBIBLIOTECA" ColumnName="IDBIBLIOTECA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENUs">
+            <EntityTypeMapping TypeName="BibliotecaModel.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="IDMENU" ColumnName="IDMENU" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MEN_IDMENU" ColumnName="MEN_IDMENU" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUNICIPIOs">
+            <EntityTypeMapping TypeName="BibliotecaModel.MUNICIPIO">
+              <MappingFragment StoreEntitySet="MUNICIPIO">
+                <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+                <ScalarProperty Name="NOMMUN" ColumnName="NOMMUN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PENALIZACIONs">
+            <EntityTypeMapping TypeName="BibliotecaModel.PENALIZACION">
+              <MappingFragment StoreEntitySet="PENALIZACION">
+                <ScalarProperty Name="IDPE" ColumnName="IDPE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHAINI" ColumnName="FECHAINI" />
+                <ScalarProperty Name="FECHAFIN" ColumnName="FECHAFIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONAs">
+            <EntityTypeMapping TypeName="BibliotecaModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="IDPERSONA" ColumnName="IDPERSONA" />
+                <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRESTAMOes">
+            <EntityTypeMapping TypeName="BibliotecaModel.PRESTAMO">
+              <MappingFragment StoreEntitySet="PRESTAMO">
+                <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+                <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHADEPRESTAMO" ColumnName="FECHADEPRESTAMO" />
+                <ScalarProperty Name="FECHADEENTREGA" ColumnName="FECHADEENTREGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGISTROes">
+            <EntityTypeMapping TypeName="BibliotecaModel.REGISTRO">
+              <MappingFragment StoreEntitySet="REGISTRO">
+                <ScalarProperty Name="IDREGISTRO" ColumnName="IDREGISTRO" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IDPRESTAMO" ColumnName="IDPRESTAMO" />
+                <ScalarProperty Name="IDMATBIBLIO" ColumnName="IDMATBIBLIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUBCATEGORIAs">
+            <EntityTypeMapping TypeName="BibliotecaModel.SUBCATEGORIA">
+              <MappingFragment StoreEntitySet="SUBCATEGORIA">
+                <ScalarProperty Name="IDSUBCATEGORIA" ColumnName="IDSUBCATEGORIA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPODOCUMENTOes">
+            <EntityTypeMapping TypeName="BibliotecaModel.TIPODOCUMENTO">
+              <MappingFragment StoreEntitySet="TIPODOCUMENTO">
+                <ScalarProperty Name="IDTIPO" ColumnName="IDTIPO" />
+                <ScalarProperty Name="TIPODOCUMENTO1" ColumnName="TIPODOCUMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="BibliotecaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

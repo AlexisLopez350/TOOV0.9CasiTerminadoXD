@@ -1,0 +1,58 @@
+﻿@model blankspaces.Models.DETALLEDEPERSONA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DETALLEDEPERSONA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LUGARDEESTUDIOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUGARDEESTUDIOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRABAJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRABAJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTUDIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTUDIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBREMADRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBREMADRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBREPADRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBREPADRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDDETALLE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

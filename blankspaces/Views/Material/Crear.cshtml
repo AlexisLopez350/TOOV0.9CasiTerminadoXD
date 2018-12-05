@@ -1,0 +1,235 @@
+﻿@model blankspaces.ViewModels.MaterialViewModel
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear </h2>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script> <!--import jquery-->
+<script type="text/javascript">
+    $(function () {
+        $("#idchk").change(function () {
+            var st = this.checked;
+            if (st) {
+                $("#idtxt").prop("disabled", false);
+                $("#idtxt1").prop("disabled", false);
+                $("#idtxt2").prop("disabled", false);
+
+            }
+
+            else {
+                $("#idtxt").prop("disabled", true);
+                $("#idtxt1").prop("disabled", true);
+                $("#idtxt2").prop("disabled", true);
+            }
+
+
+        });
+
+
+    });
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#IDCATEGORIA").change(function () {
+            var countryId = $(this).val();
+            debugger
+            $.ajax({
+                type: "post",
+                url: "/Material/GetStateList?IDCATEGORIA=" + countryId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#IDSUBCATEGORIA").empty();
+                    $("#IDSUBCATEGORIA").append(response);
+                }
+            })
+
+        })
+    })
+</script>
+
+
+@using (Html.BeginForm("Crear", "Material", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <!--Codigo de viewmodel.materialbibliotecario -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaterialBibliografico1.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.NOMBRE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.EDITORIAL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaterialBibliografico1.EDITORIAL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.EDITORIAL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MaterialBibliografico1.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.DESCRIPCION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.SINOPSIS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MaterialBibliografico1.SINOPSIS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.SINOPSIS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.FECHA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaterialBibliografico1.FECHA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.FECHA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.VOLUMEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaterialBibliografico1.VOLUMEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.VOLUMEN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.UNIDADES, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaterialBibliografico1.UNIDADES, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaterialBibliografico1.UNIDADES, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- cambios! puse idcategoria en lugar del objeto categoria. -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.CATERGORIA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (ViewBag.CountryList != null)
+                {
+                    @Html.DropDownListFor(model => model.MaterialBibliografico1.IDCATEGORIA, ViewBag.CountryList as SelectList, "--Seleccione categoria", new { @id = "IDCATEGORIA", @class = "form-control" })
+
+                }
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.CATERGORIA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaterialBibliografico1.IDSUBCATEGORIA, new SelectList(""), "--Seleccione subcategoria", new { @id = "IDSUBCATEGORIA", @class = "form-control" })
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialBibliografico1.IDTIPO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaterialBibliografico1.IDTIPO, (IEnumerable
+         <SelectListItem>)ViewBag.Tipo, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => Model.MaterialBibliografico1.IDTIPO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.Label("Digital:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <input type="checkbox" id="idchk" checked="checked" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.Label("Físico:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <input type="checkbox" id="idchk1" checked="checked" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Subir Archivo:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("VideoFile", "", new { id = "idtxt", type = "file" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Portada:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("VideoFile1", "", new { type = "file" })
+            </div>
+        </div>
+
+        <!--Codigo de viewmodel.materialbibliotecario -->
+        <!--Codigo de viewmodel.autor -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Autor1.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Autor1.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Autor1.NOMBRE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+
+        <!--Codigo de viewmodel.autor -->
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+
+
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<blankspaces.Models.CATERGORIA>
+
+@{
+    ViewBag.Title = "Gestion de Categorias";
+}
+
+<h2>Gestion Categorias</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            
+            Categoria
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCATEGORIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDCATEGORIA }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IDCATEGORIA }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IDCATEGORIA })
+        </td>
+    </tr>
+}
+
+</table>

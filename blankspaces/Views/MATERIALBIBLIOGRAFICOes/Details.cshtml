@@ -1,0 +1,160 @@
+﻿@model blankspaces.Models.MATERIALBIBLIOGRAFICO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4> @Html.DisplayFor(model => model.NOMBRE)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FOTO)
+        </dt>
+
+        <dd>
+            <img src="/@Url.Content(Model.FOTO)" alt="Image" height="120" width="120" />
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SINOPSIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SINOPSIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VOLUMEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VOLUMEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDITORIAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDITORIAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LENGUAJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LENGUAJE)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTOR.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTOR.NOMBRE)
+        </dd>
+
+
+        <dt>
+            UBICACIÓN:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOCUMENTOLOCALIDAD.LOCACIONOURL)
+        </dd>
+
+        <dt>
+            TIPO DE DOCUMENTO:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPODOCUMENTO.TIPODOCUMENTO1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATERGORIA.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATERGORIA.ID)
+        </dd>
+
+        <dt>
+            CATEGORIA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCATEGORIA)
+        </dd>
+
+
+        <dt>
+            SUBCATEGORIA
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSUBCATEGORIA)
+        </dd>
+
+        <dt>
+            Biblioteca:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIBLIOTECA.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDMATBIBLIO }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,44 @@
+﻿@model blankspaces.Models.CATERGORIA
+
+@{
+    ViewBag.Title = "Detalles de Categoria";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>CATERGORIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+
+            Categoria
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCATEGORIA)
+        </dd>
+
+        <dt>
+
+            Descripcion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDCATEGORIA }) |
+    @Html.ActionLink("Volver al Listado", "Index")
+</p>
